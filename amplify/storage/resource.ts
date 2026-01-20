@@ -2,7 +2,7 @@ import { defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
   name: 'replica-test-1vp-s3',
-  existing: true,  // This tells Amplify to use an existing bucket
+//   existing: true,
   isDefault: true,
   access: (allow) => ({
     'invoices/*': [
