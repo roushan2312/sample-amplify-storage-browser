@@ -1,7 +1,7 @@
 import { defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
-  name: 'replica',
+  name: 'replica-test-1vp-s3',
 //   existing: true,
   isDefault: true,
   access: (allow) => ({
