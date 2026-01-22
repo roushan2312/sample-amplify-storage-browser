@@ -52,30 +52,6 @@ backend.addOutput({
 });
 
 /**
- * Define an inline policy to attach to Amplify's un-auth role
- * This policy defines how unauthenticated users can access your existing bucket
- */
-// const unauthPolicy = new Policy(backend.stack, "customBucketUnauthPolicy", {
-//   statements: [
-//     new PolicyStatement({
-//       effect: Effect.ALLOW,
-//       actions: ["s3:GetObject"],
-//       resources: [`arn:aws:s3:::${customBucketName}/public/*`],
-//     }),
-//     new PolicyStatement({
-//       effect: Effect.ALLOW,
-//       actions: ["s3:ListBucket"],
-//       resources: [`arn:aws:s3:::${customBucketName}`],
-//       conditions: {
-//         StringLike: {
-//           "s3:prefix": ["public/*", "public/"],
-//         },
-//       },
-//     }),
-//   ],
-// });
-
-/**
  * Define an inline policy to attach to Amplify's auth role
  * This policy defines how authenticated users can access your existing bucket
  */
