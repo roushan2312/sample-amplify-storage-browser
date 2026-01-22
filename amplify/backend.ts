@@ -37,8 +37,9 @@ backend.addOutput({
         //@ts-expect-error amplify backend type issue https://github.com/aws-amplify/amplify-backend/issues/2569
         paths: {
           "invoices/*": {
-            admin: ["get", "list"],
-            authenticated: ["get", "list", "write"],
+            admin: ["get", "list", "write", "delete"],
+            Ops: ["get", "list", "write"]
+            // authenticated: ["get", "list", "write"],
           },
           // "admin/*": {
           //   groupsadmin: ["get", "list", "write"],
@@ -78,7 +79,7 @@ backend.addOutput({
  * Define an inline policy to attach to Amplify's auth role
  * This policy defines how authenticated users can access your existing bucket
  */
-const authPolicy = new Policy(backend.stack, "customBucketAuthPolicy", {
+const OpsPolicy = new Policy(backend.stack, "customBucket1vpOpsPolicy", {
   statements: [
     new PolicyStatement({
       effect: Effect.ALLOW,
@@ -136,7 +137,8 @@ const adminPolicy = new Policy(backend.stack, "customBucketAdminPolicy", {
 // );
 
 // Add the policies to the authenticated user role
-backend.auth.resources.authenticatedUserIamRole.attachInlinePolicy(authPolicy);
+// backend.auth.resources.authenticatedUserIamRole.attachInlinePolicy(authPolicy);
 
 // Add the policies to the admin user role
 backend.auth.resources.groups["admin"].role.attachInlinePolicy(adminPolicy);
+backend.auth.resources.groups["Ops"].role.attachInlinePolicy(OpsPolicy);
