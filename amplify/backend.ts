@@ -131,9 +131,9 @@ const adminPolicy = new Policy(backend.stack, "customBucketAdminPolicy", {
 });
 
 // Add the policies to the unauthenticated user role
-backend.auth.resources.unauthenticatedUserIamRole.attachInlinePolicy(
-  unauthPolicy
-);
+// backend.auth.resources.unauthenticatedUserIamRole.attachInlinePolicy(
+//   unauthPolicy
+// );
 
 // Add the policies to the authenticated user role
 backend.auth.resources.authenticatedUserIamRole.attachInlinePolicy(authPolicy);
