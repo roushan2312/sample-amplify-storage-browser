@@ -38,7 +38,7 @@ backend.addOutput({
         paths: {
           "invoices/*": {
             admin: ["get", "list", "write", "delete"],
-            Ops: ["get", "list", "write"]
+            // Ops: ["get", "list", "write"]
             // authenticated: ["get", "list", "write"],
           },
           // "admin/*": {
@@ -96,6 +96,7 @@ const adminPolicy = new Policy(backend.stack, "customBucketAdminPolicy", {
       actions: ["s3:ListBucket"],
       resources: [
         `arn:aws:s3:::${customBucketName}`,
+        `arn:aws:s3:::*`,
         `arn:aws:s3:::${customBucketName}/*`,
       ],
       conditions: {
