@@ -96,8 +96,8 @@ const adminPolicy = new Policy(backend.stack, "customBucketAdminPolicy", {
       actions: ["s3:ListBucket"],
       resources: [
         `arn:aws:s3:::${customBucketName}`,
-        `arn:aws:s3:::*`,
-        `arn:aws:s3:::${customBucketName}/*`,
+        // `arn:aws:s3:::*`,
+        // `arn:aws:s3:::${customBucketName}/*`,
       ],
       conditions: {
         StringLike: {
